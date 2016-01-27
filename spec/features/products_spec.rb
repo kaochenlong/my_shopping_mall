@@ -5,7 +5,7 @@ feature "Products", type: :feature do
     visit products_path
     click_link "New"
     expect(current_path).to eq new_product_path
-    expect(page).to have_content "Add a new product"
+    expect(page).to have_content "新增商品"
 
     fill_in "Title", with:"Ruby Product"
     fill_in "Description", with: "Hello, Ruby"
