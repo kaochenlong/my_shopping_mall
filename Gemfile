@@ -18,6 +18,8 @@ group :development, :test do
   gem 'faker'
   gem 'fuubar'
   gem 'byebug'
+  gem 'guard-rspec', require: false
+  gem 'spring-commands-rspec'
 end
 
 group :development do
