@@ -16,7 +16,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
-
+  gem 'fuubar'
   gem 'byebug'
 end
 
