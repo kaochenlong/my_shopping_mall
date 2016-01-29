@@ -1,4 +1,5 @@
 class Cart
+  attr_reader :items
 
   def initialize
     @items = []
@@ -24,8 +25,5 @@ class Cart
     @items.empty?
   end
 
-  def items
-    @items
-  end
 end
 
