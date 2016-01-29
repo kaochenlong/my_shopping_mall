@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ExampleUser do
+RSpec.describe ExampleUser do
   describe "add users" do
     context "normal user" do
       it "can add a new example user" do

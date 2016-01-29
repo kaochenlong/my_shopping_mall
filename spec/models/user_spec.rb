@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   # homework
   context "admin user" do
     it "can create a admin user" do
