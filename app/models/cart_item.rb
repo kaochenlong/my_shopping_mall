@@ -8,5 +8,13 @@ class CartItem
   def product_id
     @product_id
   end
+
+  def quantity
+    @quantity
+  end
+
+  def increment
+    @quantity = @quantity + 1
+  end
 end
 

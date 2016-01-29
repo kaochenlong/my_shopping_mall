@@ -20,8 +20,9 @@ RSpec.describe Cart, type: :model do
 
         3.times { cart.add_item(1) }
         5.times { cart.add_item(2) }
+        2.times { cart.add_item(3) }
 
-        expect(cart.items.length).to be 2
+        expect(cart.items.length).to be 3
         expect(cart.items.first.product_id).to be 1
         expect(cart.items.first.quantity).to be 3
         expect(cart.items.second.product_id).to be 2
