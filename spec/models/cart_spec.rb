@@ -31,11 +31,14 @@ RSpec.describe Cart, type: :model do
     context "get item from cart" do
       it "item added to cart, get the item back from the cart." do
         cart = Cart.new
-        4.times { cart.add_item(5) }
-        2.times { cart.add_item(99) }
+        p1 = create(:ruby_book)
+        p2 = create(:php_book)
 
-        expect(cart.items.first.product_id).to be 5
-        expect(cart.items.second.product_id).to be 99
+        4.times { cart.add_item(p1.id) }
+        2.times { cart.add_item(p2.id) }
+
+        expect(cart.items.first.product_id).to be p1.id
+        expect(cart.items.second.product_id).to be p2.id
         expect(cart.items.first.product).to be_a Product
       end
     end
