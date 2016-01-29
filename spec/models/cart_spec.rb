@@ -74,6 +74,12 @@ RSpec.describe Cart, type: :model do
     end
   end
 
+  describe "special events" do
+    context "XMas" do
+      it "10% off on XMas"
+    end
+  end
+
   private
   def result_hash
     {
