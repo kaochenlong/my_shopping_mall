@@ -61,6 +61,19 @@ RSpec.describe Cart, type: :model do
     end
   end
 
+  describe "calculator" do
+    it "calculate total price of this cart" do
+      p1 = create(:ruby_book, price: 1000)
+      p2 = create(:php_book, price: 100)
+
+      3.times {
+        cart.add_item(p1.id)
+        cart.add_item(p2.id)
+      }
+      expect(cart.total_price).to be 3300
+    end
+  end
+
   private
   def result_hash
     {
@@ -73,10 +86,5 @@ RSpec.describe Cart, type: :model do
     }
   end
 
-#* Calculate total price of this cart.
-
-# cart item
-#* Every item can calculate it's total price itself.
-#* Some Special Event (e.g. 10% off on XMas), Optional.
 
 end

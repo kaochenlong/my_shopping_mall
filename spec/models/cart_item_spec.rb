@@ -5,10 +5,14 @@ RSpec.describe CartItem, type: :model do
 
   describe "calculator" do
     it "item can calculate it's total price itself" do
-      p = create(:ruby_book, price: 80)
-      3.times { cart.add_item(p.id) }
+      p1 = create(:ruby_book, price: 80)
+      p2 = create(:php_book, price: 200)
+      3.times { cart.add_item(p1.id) }
+      4.times { cart.add_item(p2.id) }
+      2.times { cart.add_item(p1.id) }
 
-      expect(cart.items.first.price).to be 240
+      expect(cart.items.first.price).to be 400
+      expect(cart.items.second.price).to be 800
     end
   end
 
