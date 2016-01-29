@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
 
-  describe "add or get item from cart" do
+  let(:cart) { Cart.new }
 
+  describe "add or get item from cart" do
     context "add 1 item" do
       it "Add a item to cart, then the cart won't be empty." do
-        cart = Cart.new
         expect(cart).to be_empty
 
         cart.add_item(1)
@@ -16,8 +16,6 @@ RSpec.describe Cart, type: :model do
 
     context "add more same item" do
       it "Add more same items to cart, but item count won't change" do
-        cart = Cart.new
-
         3.times { cart.add_item(1) }
         5.times { cart.add_item(2) }
         2.times { cart.add_item(3) }
@@ -30,7 +28,6 @@ RSpec.describe Cart, type: :model do
 
     context "get item from cart" do
       it "item added to cart, get the item back from the cart." do
-        cart = Cart.new
         p1 = create(:ruby_book)
         p2 = create(:php_book)
 
