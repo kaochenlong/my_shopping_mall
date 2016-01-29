@@ -41,9 +41,18 @@ RSpec.describe Cart, type: :model do
     end
   end
 
+  describe "cart serialize" do
+    context "cart to hash" do
+      it "serialize it's items to hash structure"
+    end
+
+    #context "hash to cart" do
+      #it "rebuilt by import a hash structure"
+    #end
+  end
+
+
 #* Calculate total price of this cart.
-#* Can serialize all it's items to hash structure for further usage.
-#* Cart also rebuilt by import a hash structure.
 
 # cart item
 #* Every item can calculate it's total price itself.
