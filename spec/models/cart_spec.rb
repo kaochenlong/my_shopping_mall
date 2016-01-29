@@ -14,9 +14,20 @@ RSpec.describe Cart, type: :model do
       end
     end
 
-    #context "add more same item" do
-      #it "Add more same items to cart, but the item count won't change"
-    #end
+    context "add more same item" do
+      it "Add more same items to cart, but item count won't change" do
+        cart = Cart.new
+
+        3.times { cart.add_item(1) }
+        5.times { cart.add_item(2) }
+
+        expect(cart.items.length).to be 2
+        expect(cart.items.first.product_id).to be 1
+        expect(cart.items.first.quantity).to be 3
+        expect(cart.items.second.product_id).to be 2
+        expect(cart.items.second.quantity).to be 5
+      end
+    end
 
     #context "get item from cart" do
       #it "After the item added to cart, you can get the item back from the cart."
