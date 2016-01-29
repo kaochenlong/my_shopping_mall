@@ -26,10 +26,9 @@ class Cart
   end
 
   def serialize
-    items = []
-    @items.each do |item|
-      items << {product_id: item.product_id , quantity: item.quantity}
-    end
+    items = @items.map { |item|
+      {product_id: item.product_id , quantity: item.quantity}
+    }
 
     {
       cart: { items: items }
