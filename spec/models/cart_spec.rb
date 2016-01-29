@@ -60,9 +60,25 @@ RSpec.describe Cart, type: :model do
       end
     end
 
-    #context "hash to cart" do
-      #it "rebuilt by import a hash structure"
-    #end
+    context "hash to cart" do
+      it "rebuilt by import a hash structure" do
+
+        result_hash = {
+          cart: {
+            items: [
+              {product_id: 2, quantity: 3},
+              {product_id: 5, quantity: 4}
+            ]
+          }
+        }
+
+        cart = Cart.build_from_hash(result_hash)
+        expect(cart.items.first.product_id).to be 2
+        expect(cart.items.first.quantity).to be 3
+        expect(cart.items.second.product_id).to be 5
+        expect(cart.items.second.quantity).to be 4
+      end
+    end
   end
 
 
