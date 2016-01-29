@@ -38,13 +38,12 @@ class Cart
     if hash.nil?
       items = []
     else
-      items = []
-      hash[:cart][:items].each do |item_hash|
-        items << CartItem.new(item_hash[:product_id], item_hash[:quantity])
-      end
+      items = hash[:cart][:items].map { |item_hash|
+        CartItem.new(item_hash[:product_id], item_hash[:quantity])
+      }
     end
 
-    Cart.new(items)
+    new items
   end
 
 end
