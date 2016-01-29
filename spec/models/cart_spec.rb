@@ -43,7 +43,21 @@ RSpec.describe Cart, type: :model do
 
   describe "cart serialize" do
     context "cart to hash" do
-      it "serialize it's items to hash structure"
+      it "serialize it's items to hash structure" do
+        3.times { cart.add_item(2) }
+        4.times { cart.add_item(5) }
+
+        result_hash = {
+          cart: {
+            items: [
+              {product_id: 2, quantity: 3},
+              {product_id: 5, quantity: 4}
+            ]
+          }
+        }
+
+        expect(cart.serialize).to eq result_hash
+      end
     end
 
     #context "hash to cart" do

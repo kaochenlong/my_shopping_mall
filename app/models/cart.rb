@@ -25,5 +25,16 @@ class Cart
     @items.empty?
   end
 
+  def serialize
+    items = []
+    @items.each do |item|
+      items << {product_id: item.product_id , quantity: item.quantity}
+    end
+
+    {
+      cart: { items: items }
+    }
+  end
+
 end
 
