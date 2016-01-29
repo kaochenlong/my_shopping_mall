@@ -23,18 +23,22 @@ RSpec.describe Cart, type: :model do
         2.times { cart.add_item(3) }
 
         expect(cart.items.length).to be 3
-        expect(cart.items.first.product_id).to be 1
         expect(cart.items.first.quantity).to be 3
-        expect(cart.items.second.product_id).to be 2
         expect(cart.items.second.quantity).to be 5
       end
     end
 
-    #context "get item from cart" do
-      #it "After the item added to cart, you can get the item back from the cart."
+    context "get item from cart" do
+      it "item added to cart, get the item back from the cart." do
+        cart = Cart.new
+        4.times { cart.add_item(5) }
+        2.times { cart.add_item(99) }
 
-    #end
-
+        expect(cart.items.first.product_id).to be 5
+        expect(cart.items.second.product_id).to be 99
+        expect(cart.items.first.product).to be_a Product
+      end
+    end
   end
 
 #* Calculate total price of this cart.
