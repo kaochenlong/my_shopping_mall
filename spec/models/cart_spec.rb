@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-
   let(:cart) { Cart.new }
 
   describe "add or get item from cart" do
@@ -46,13 +45,15 @@ RSpec.describe Cart, type: :model do
       it "serialize it's items to hash structure" do
         3.times { cart.add_item(2) }
         4.times { cart.add_item(5) }
-        expect(cart.serialize).to eq result_hash
+
+        expect(cart.serialize).to eq build(:session_hash)
       end
     end
 
     context "hash to cart" do
       it "rebuilt by import a hash structure" do
-        cart = Cart.build_from_hash(result_hash)
+        cart = Cart.build_from_hash(build(:session_hash))
+
         expect(cart.items.first.product_id).to be 2
         expect(cart.items.first.quantity).to be 3
         expect(cart.items.second.product_id).to be 5
@@ -70,6 +71,7 @@ RSpec.describe Cart, type: :model do
         cart.add_item(p1.id)
         cart.add_item(p2.id)
       }
+
       expect(cart.total_price).to be 3300
     end
   end
@@ -87,6 +89,7 @@ RSpec.describe Cart, type: :model do
     end
   end
 
+  # HOMEWORK
   describe "Special Offer" do
     it "滿千折百" do
       p = create(:ruby_book, price: 300)
@@ -97,18 +100,4 @@ RSpec.describe Cart, type: :model do
       expect(cart.total_price).to be 1100
     end
   end
-
-  private
-  def result_hash
-    {
-      cart: {
-        items: [
-          {product_id: 2, quantity: 3},
-          {product_id: 5, quantity: 4}
-        ]
-      }
-    }
-  end
-
-
 end

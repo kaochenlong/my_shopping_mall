@@ -11,11 +11,10 @@ class CartItem
   end
 
   def product
-    Product.find_by(id: @product_id)
+    Product.find_by(id: product_id)
   end
 
   def price
-    product.price * @quantity
+    product.price * quantity
   end
 end
-

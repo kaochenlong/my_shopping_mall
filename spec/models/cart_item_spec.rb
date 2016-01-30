@@ -15,8 +15,4 @@ RSpec.describe CartItem, type: :model do
       expect(cart.items.second.price).to be 800
     end
   end
-
-# cart item
-#* Some Special Event (e.g. 10% off on XMas), Optional.
-
 end
