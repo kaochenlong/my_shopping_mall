@@ -11,7 +11,7 @@ RSpec.describe ExampleUser do
 
     context "random user" do
       it "can add a random user, but user will be unavailable" do
-        u = create(:random_user)
+        u = create(:example_user)
         expect(u.is_available).to be false
         expect(ExampleUser.count).to be 0  # is_available = false don't count
       end

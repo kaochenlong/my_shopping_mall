@@ -10,7 +10,7 @@ RSpec.feature "Products", type: :feature do
 
   scenario "add a new product if user sign in" do
     # sign in
-    login_as(create(:fake_user))
+    login_as(create(:user))
 
     visit products_path
     click_link "New"
