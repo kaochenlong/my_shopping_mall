@@ -19,7 +19,7 @@
         <td><%= product.title %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
-        <td><%= image_tag product.image %></td>
+        <td><%= image_tag product.image.small %></td>
         <td><%= link_to 'Show', [:admin, product] %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
         <td><%= link_to 'Destroy', [:admin, product], method: :delete, data: { confirm: 'Are you sure?' } %></td>

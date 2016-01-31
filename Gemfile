@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 
 gem 'carrierwave'
 gem 'simple_form'
+gem 'mini_magick'
 
 gem 'jquery-rails'
 gem 'turbolinks'
