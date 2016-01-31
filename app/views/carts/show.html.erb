@@ -1,24 +1,7 @@
 <h1>購物車</h1>
 
-<table class="table">
-  <tr>
-    <td>產品名稱</td>
-    <td>單價</td>
-    <td>數量</td>
-    <td>小計</td>
-  </tr>
-  <% @cart.items.each do |item| %>
-  <tr>
-    <td><%= item.product.title %></td>
-    <td><%= item.product.price %></td>
-    <td><%= item.quantity %></td>
-    <td><%= item.price %></td>
-  </tr>
-  <% end %>
-  <tr>
-    <td colspan="3">總價</td>
-    <td><%= @cart.total_price %></td>
-  </tr>
-</table>
+<%= render "cart_lists", {cart: @cart} %>
+
 <%= link_to '繼續選購', products_path, class:'btn btn-success' %>
-<%= link_to '結帳', '#', class:'btn btn-danger' %>
+<%= link_to '結帳', checkout_cart_path, class:'btn btn-danger' %>
+
