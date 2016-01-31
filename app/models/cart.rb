@@ -7,7 +7,7 @@ class Cart
 
   def add_item(id)
     # find item
-    item = items.find { |item| item.product_id == id }
+    item = items.find { |t| t.product_id == id }
 
     # if item exists, + quantity
     # else push a new item
@@ -24,7 +24,7 @@ class Cart
 
   def serialize
     {
-      cart: { items: items.map { |item| {product_id: item.product_id , quantity: item.quantity} } }
+      "cart" => { "items" => items.map { |t| {"product_id" => t.product_id , "quantity" => t.quantity} } }
     }
   end
 
@@ -32,8 +32,8 @@ class Cart
     if hash.nil?
       new []
     else
-      new hash[:cart][:items].map { |item_hash|
-        CartItem.new(item_hash[:product_id], item_hash[:quantity])
+      new hash["cart"]["items"].map { |item_hash|
+        CartItem.new(item_hash["product_id"], item_hash["quantity"])
       }
     end
   end
