@@ -18,5 +18,7 @@ class CartsController < ApplicationController
   end
 
   def checkout
+    @recipient = Recipient.new
   end
+
 end
