@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
 
       redirect_to products_path
     else
-      render action: 'carts/checkout'
+      render 'carts/checkout'
     end
 
   end
