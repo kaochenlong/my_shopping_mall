@@ -5,8 +5,11 @@ class OrdersController < ApplicationController
     # 刷卡
     # insert order
     # insert order_items
-    flash[:notice] = "感謝大爺!"
+
     # 清空 cart
+    session[:my_cart] = nil
+
+    flash[:notice] = "感謝大爺!"
     redirect_to products_path
   end
 end
