@@ -15,6 +15,8 @@ class CartItem
   end
 
   def price
-    product.price * quantity
+    total = product.price * quantity
+    total = total - 100 if total >= 1000 and product.special_offer
+    total
   end
 end
