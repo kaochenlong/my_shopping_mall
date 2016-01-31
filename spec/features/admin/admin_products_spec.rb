@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature "Admin::Products", type: :feature do
   scenario "redirect to user sign in page if not sign in" do
     visit admin_products_path
-    click_link "New"
     expect(current_path).to eq new_user_session_path
   end
 
