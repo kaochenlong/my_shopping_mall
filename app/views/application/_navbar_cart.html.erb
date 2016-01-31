@@ -1,0 +1,7 @@
+<%= link_to cart_path do  %>
+  <% if cart and !cart.empty? %>
+    Cart <span class="badge"><%= cart.items.length %></span>
+  <% else %>
+    Cart
+  <% end %>
+<% end %>
