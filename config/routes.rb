@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  root "products#index"
 
   resources :products, only:[:index, :show]
-  root "products#index"
+  resources :orders, only:[:create]
 
   resource :cart, only:[:show, :destroy] do
     member do
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
+    resources :orders
   end
 end

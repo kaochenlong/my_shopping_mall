@@ -2,7 +2,7 @@
 
 <%= render "cart_lists", {cart: @cart} %>
 
-<%= simple_form_for(@recipient) do |f| %>
+<%= simple_form_for(@order) do |f| %>
   <%= f.input :name %>
   <%= f.input :tel %>
   <%= f.input :address %>
