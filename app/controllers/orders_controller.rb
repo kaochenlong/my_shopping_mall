@@ -9,12 +9,21 @@ class OrdersController < ApplicationController
 
     if order.save
       # 刷卡
-      # nonce = params[:payment_method_nonce]
-      #
-      # 清空 cart
-      #session[:my_cart] = nil
+      nonce = params[:payment_method_nonce]
+      result = Braintree::Transaction.sale(
+        :amount => @cart.total_price,
+        :payment_method_nonce => nonce
+      )
 
-      flash[:notice] = "感謝大爺!"
+      if result
+        # 清空 cart
+        session[:my_cart] = nil
+        flash[:notice] = "感謝大爺!"
+      else
+        # fail.....
+        flash[:notice] = "刷卡失敗!"
+      end
+
       redirect_to products_path
     else
       render action: 'carts/checkout'
