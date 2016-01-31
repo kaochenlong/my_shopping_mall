@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'simple_form'
 gem 'mini_magick'
 gem 'braintree'
+gem 'state_machine'
 
 gem 'jquery-rails'
 gem 'turbolinks'
