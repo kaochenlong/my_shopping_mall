@@ -7,5 +7,19 @@
   <%= f.input :tel %>
   <%= f.input :address %>
   <%= f.input :email %>
+
+  <hr />
+  <div id="payment-form"></div>
+
+  <hr />
   <%= f.submit "結帳" %>
 <% end %>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+var clientToken = "<%= @token %>";
+
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>
