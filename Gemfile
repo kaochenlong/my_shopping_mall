@@ -9,6 +9,9 @@ gem 'devise'
 gem 'puma'
 gem 'bootstrap-sass'
 
+gem 'carrierwave'
+gem 'simple_form'
+
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
