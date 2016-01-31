@@ -22,6 +22,8 @@ RSpec.feature "Admin::Products", type: :feature do
     fill_in "Title", with:"Ruby Product"
     fill_in "Description", with: "Hello, Ruby"
     fill_in "Price", with:100
+    attach_file "Image", "#{Rails.root}/spec/factories/logo.png"
+
     click_button "Create Product"
 
     expect(current_path).to eq admin_products_path
