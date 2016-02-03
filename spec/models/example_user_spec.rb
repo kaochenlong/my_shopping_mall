@@ -4,7 +4,7 @@ RSpec.describe ExampleUser do
   describe "add users" do
     context "normal user" do
       it "can add a new example user" do
-        u = create(:my_dad)
+        u = create(:example_user, :dad)
         expect(ExampleUser.count).to be 1
       end
     end

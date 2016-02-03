@@ -6,11 +6,10 @@ FactoryGirl.define do
     password Faker::Internet.password
     is_available false
 
-    factory :my_dad do
-      name "KK"
-      email "kk@5xruby.tw"
+    trait :dad do
+      name "daddy"
+      email "daddy@5xruby.tw"
       age 60
-      password "jflkdjflskflkdjlk"
       is_available true
     end
   end

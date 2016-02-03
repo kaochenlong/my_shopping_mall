@@ -27,8 +27,8 @@ RSpec.describe Cart, type: :model do
 
     context "get item from cart" do
       it "item added to cart, get the item back from the cart." do
-        p1 = create(:ruby_book)
-        p2 = create(:php_book)
+        p1 = create(:product, :ruby_book)
+        p2 = create(:product, :php_book)
 
         4.times { cart.add_item(p1.id) }
         2.times { cart.add_item(p2.id) }
@@ -64,8 +64,8 @@ RSpec.describe Cart, type: :model do
 
   describe "calculator" do
     it "calculate total price of this cart" do
-      p1 = create(:ruby_book, price: 1000)
-      p2 = create(:php_book, price: 100)
+      p1 = create(:product, :ruby_book, price: 1000)
+      p2 = create(:product, :php_book, price: 100)
 
       3.times {
         cart.add_item(p1.id)
@@ -79,7 +79,7 @@ RSpec.describe Cart, type: :model do
   describe "special events" do
     context "XMas" do
       it "10% off on XMas" do
-        p = create(:ruby_book, price: 10)
+        p = create(:product, :ruby_book, price: 10)
         10.times { cart.add_item(p.id) }
 
         Timecop.travel(2015, 12, 25) do
@@ -92,7 +92,7 @@ RSpec.describe Cart, type: :model do
   # HOMEWORK
   describe "Special Offer" do
     it "滿千折百" do
-      p = create(:ruby_book, price: 300, special_offer: true)
+      p = create(:product, :ruby_book, price: 300, special_offer: true)
       3.times { cart.add_item(p.id) }
       expect(cart.total_price).to be 900
 

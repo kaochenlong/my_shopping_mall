@@ -3,7 +3,7 @@ FactoryGirl.define do
     email Faker::Internet.email
     password Faker::Internet.password
 
-    factory :admin do
+    trait :admin do
       role "admin"
     end
   end
